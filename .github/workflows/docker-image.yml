@@ -2,17 +2,18 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: none # [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: none # [ "main" ]
 
 jobs:
 
   build:
 
-    runs-on: ubuntu:latest
+    runs-on: ubuntu:18.04
 
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      working-directory: mongo-kub-argoCD
+      run: docker build . --file Dockerfile --tag my-mongo-image:$(date +%s)
