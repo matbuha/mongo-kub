@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: mongodb-app
-        image: mongodb/mongodb-community-server:latest
+        image: mongodb/mongo-cxx-driver
         ports:
         - containerPort: 8080
